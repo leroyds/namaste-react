@@ -1,24 +1,32 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Header = () => {
-    useEffect(()=>{
-        fetch('https://jsonplaceholder.typicode.com/posts/1', { xhost: 'asd' })
-    },[])
-    return (
-        <div className="header">
-            <div className="logo-container">
-                <p className="logo">Namaste Food</p>
-            </div>
-            <div className="nav-items">
-                <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
-                    <li>Cart</li>
-                </ul>
-            </div>
-        </div>
-    )
-}
+  const [button, setbutton] = useState("login");
+  let test = "check";
+  return (
+    <div className="header">
+      <div className="logo-container">
+        <p className="logo">Namaste Food</p>
+      </div>
+      <div className="nav-items">
+        <ul>
+          <li>Home</li>
+          <li>About Us</li>
+          <li>Contact Us</li>
+          <li>Cart</li>
+          <li>{test}</li>
+          <button
+            onClick={() => {
+              test = "test";
+              setbutton(button === "login" ? "logged out" : "login");
+            }}
+          >
+            {button}
+          </button>
+        </ul>
+      </div>
+    </div>
+  );
+};
 
 export default Header;
